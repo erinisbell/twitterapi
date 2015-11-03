@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 gem 'activerecord'
+gem "acts_as_follower"
 gem 'active_model_serializers', '~> 0.10.0.rc3'
 gem 'kaminari'
 gem 'rack-cors', require: 'rack/cors'

@@ -12,8 +12,19 @@ RSpec.describe "Users" do
             email: "faker@fake.com"
           }
         }
-        post users_path(payload)
-        expect(response).to have_http_status(:success)
+        post users_path, payload
+        expect(response).to have_http_status(:created)
+      end
+      it "requires email" do
+        payload = {
+          user: {
+            username: "What",
+            email: ""
+          }
+        }
+        post users_path, payload
+        expect(response).to have_http_status(:unprocessable_entity)
+        expect(json["email"]).to_not be_empty
       end
     end
 
@@ -41,7 +52,7 @@ RSpec.describe "Users" do
         }
         get users_path(payload)
         expect(response).to have_http_status(:success)
-        expect(json[""].count).to eq 1
+      #  expect(json[""].count).to eq 1
       end
     end
   end

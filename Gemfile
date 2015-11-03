@@ -4,6 +4,7 @@ ruby '2.2.3'
 gem 'activerecord'
 gem "acts_as_follower"
 gem 'active_model_serializers', '~> 0.10.0.rc3'
+gem 'bcrypt'
 gem 'kaminari'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails-api'
@@ -14,6 +15,7 @@ gem 'puma'
 group :development do
   gem 'foreman'
   gem 'pry'
+  gem 'rails-erd'
 end
 
 group :test, :development do

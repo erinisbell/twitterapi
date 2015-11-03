@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :tweet do
-    body "MyString"
-user_id 1
+    body { Faker::Lorem.sentence }
+    user_id 1
   end
 
 end

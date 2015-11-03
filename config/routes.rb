@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
 
-  resources :users #do put follow put unfollow
-  #end
+  resources :users do
+    put :follow
+    put :unfollow
+  end
   resources :tweets
 
 

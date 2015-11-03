@@ -9,17 +9,20 @@ RSpec.describe "Users" do
         payload = {
           user: {
             username: "What",
-            email: "faker@fake.com"
+            email: "faker@fake.com",
+            password: "password"
           }
         }
         post users_path, payload
         expect(response).to have_http_status(:created)
       end
+
       it "requires email" do
         payload = {
           user: {
             username: "What",
-            email: ""
+            email: "",
+            password: "dowhatnow"
           }
         }
         post users_path, payload
@@ -28,12 +31,14 @@ RSpec.describe "Users" do
       end
     end
 
+
     describe "#index" do
       it "shows multiple users" do
         payload = {
           user: {
             username: "What",
-            email: "faker@fake.com"
+            email: "faker@fake.com",
+            password: "password"
           }
         }
         get users_path(payload)
@@ -52,7 +57,7 @@ RSpec.describe "Users" do
         }
         get users_path(payload)
         expect(response).to have_http_status(:success)
-      #  expect(json[""].count).to eq 1
+        expect(json[""].count).to eq 1
       end
     end
   end

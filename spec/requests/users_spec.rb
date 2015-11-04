@@ -9,7 +9,7 @@ RSpec.describe "Users" do
       payload = {
         user: {
           email: "faker@fake.com",
-          password_digest: "password"
+          password: "password"
         }
       }
       post users_path, payload
@@ -20,7 +20,7 @@ RSpec.describe "Users" do
       payload = {
         user: {
           email: "",
-          password_digest: "dowhatnow"
+          password: "dowhatnow"
         }
       }
       post users_path, payload

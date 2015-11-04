@@ -52,5 +52,14 @@ RSpec.describe "Users" do
   end
 
 
+describe "#update" do
+  let(:user1) { FactoryGirl.create :user }
+  it "lets a user update themself" do
+    get users_path(user1)
+    # expect(actual).to eq(expected)
+    expect(json[0]["username"]).to eq(exptected)["username"]
+  end
+end
+
 
 end

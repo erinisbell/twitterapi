@@ -5,6 +5,7 @@ gem 'activerecord'
 gem "acts_as_follower"
 gem 'active_model_serializers', '~> 0.10.0.rc3'
 gem 'bcrypt'
+gem 'doorkeeper'
 gem 'kaminari'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails-api'

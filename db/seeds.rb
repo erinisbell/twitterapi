@@ -8,3 +8,7 @@
 
 FactoryGirl.create_list(:user, 3)
 FactoryGirl.create_list(:tweet, 3)
+
+
+u1 = User.create(email: 'user@example.com', password: 'password')
+u2 = User.create(email: 'user2@example.com', password: 'password')

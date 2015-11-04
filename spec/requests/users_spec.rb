@@ -8,9 +8,8 @@ RSpec.describe "Users" do
     it "creates user" do
       payload = {
         user: {
-          username: "What",
           email: "faker@fake.com",
-          password: "password"
+          password_digest: "password"
         }
       }
       post users_path, payload
@@ -20,9 +19,8 @@ RSpec.describe "Users" do
     it "requires email" do
       payload = {
         user: {
-          username: "What",
           email: "",
-          password: "dowhatnow"
+          password_digest: "dowhatnow"
         }
       }
       post users_path, payload
@@ -57,7 +55,7 @@ describe "#update" do
   it "lets a user update themself" do
     get users_path(user1)
     # expect(actual).to eq(expected)
-    expect(json[0]["username"]).to eq(exptected)["username"]
+    expect(json[0]["username"]).to eq("username")
   end
 end
 

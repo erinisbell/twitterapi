@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  # use_doorkeeper
+   use_doorkeeper
 
-  get :token, controller: 'applicaiton'
-
-resources :tweets
+resources :tweets, except: [:new, :edit, :destroy]
 
   resources :users, except: [:new, :edit] do
     put :follow

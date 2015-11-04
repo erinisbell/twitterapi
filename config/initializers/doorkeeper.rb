@@ -4,7 +4,7 @@ Doorkeeper.configure do
 
   # This block will be called to check whether the resource owner is authenticated or not.
   resource_owner_authenticator do
-    User.find_by_id(session[:current_user_id]) || redirect_to(login_url)
+    User.find_by_id(session[:current_user_id])
     # Put your resource owner authentication logic here.
     # Example implementation:
     #   User.find_by_id(session[:user_id]) || redirect_to(new_user_session_url)
@@ -38,7 +38,7 @@ Doorkeeper.configure do
   # reuse_access_token
 
   # Issue access tokens with refresh token (disabled by default)
-  # use_refresh_token
+  use_refresh_token
 
   # Provide support for an owner to be assigned to each registered application (disabled by default)
   # Optional parameter :confirmation => true (default false) if you want to enforce ownership of
@@ -93,7 +93,10 @@ Doorkeeper.configure do
   #   http://tools.ietf.org/html/rfc6819#section-4.4.2
   #   http://tools.ietf.org/html/rfc6819#section-4.4.3
   #
-  # grant_flows %w(authorization_code client_credentials)
+   grant_flows %w(authorization_code client_credentials password)
+   resource_owner_from_credentials do |routes|
+   User.authenticate!(params[:username], params[:password])
+ end
 
   # Under some circumstances you might want to have applications auto-approved,
   # so that the user skips the authorization step.

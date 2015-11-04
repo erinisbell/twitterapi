@@ -7,6 +7,7 @@ class ApplicationController < ActionController::API
  end
 
  def current_user
-   @current_user ||= authenticate_with_http_token { |token, options| User.find_by(auth_token: token) }
- end
+    User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
+  end
+
 end

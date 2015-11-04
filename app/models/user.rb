@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   acts_as_followable
   acts_as_follower
 
-  def generate_token
-    self.auth_token = SecureRandom.hex(7)
-    self.save!
-    self.auth_token
-  end
+ def self.authenticate!(email, password)
+   user = User.find_by_email(email)
+   user.authenticate(password)
+ end
+
 end

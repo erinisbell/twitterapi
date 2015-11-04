@@ -2,16 +2,16 @@ class TweetsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
   before_action :set_tweet, only: [:show, :update, :destroy]
 
-    def index
-      render json: Tweet.all
-    end
+  def index
+    render json: Tweet.all
+  end
 
-    def show
-      tweet  = Tweet.find(params[:id])
-      render json: tweet
-    end
+  def show
+    tweet  = Tweet.find(params[:id])
+    render json: tweet
+  end
 
-    def create
+  def create
     tweet = Tweet.new(tweet_params)
     tweet.user_id = tweet[:tweet_id]
     if tweet.save
@@ -23,7 +23,7 @@ class TweetsController < ApplicationController
 
 
   private
-   def tweet_params
-     params.require(:tweet).permit(:body)
-   end
+  def tweet_params
+    params.require(:tweet).permit(:body)
   end
+end

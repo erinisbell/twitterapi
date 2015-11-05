@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::API
   include ActionController::HttpAuthentication::Basic::ControllerMethods
   include ActionController::HttpAuthentication::Token::ControllerMethods
-  include Pundit
 
-  UnauthenticatedError = Class.new(ActionController::ActionControllerError)
-  rescue_from UnauthenticatedError, with: :unauthenticated
+  # UnauthenticatedError = Class.new(ActionController::ActionControllerError)
+  # rescue_from UnauthenticatedError, with: :unauthenticated
+
+
+  # def unauthenticated(error)
+  #   head :unathorized
+  # end
 
   def authenticate_user!
     raise UnauthenticatedError unless current_user

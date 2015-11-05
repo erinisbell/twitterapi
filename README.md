@@ -9,7 +9,8 @@ For this Twitter API, a user will be able to be created with the payload of an e
 
 
 URL:
-POST--https://twitterapii.herokuapp.com/users
+GET -- https://twitterapii.herokuapp.com/users (This will allow you to see all users)
+POST-- https://twitterapii.herokuapp.com/users
 
 Sign Up A User:
 Each of the things needed (aka payload) in order for a user to sign up is an email and password.Here is an example of what the json looks like that will be used:
@@ -24,6 +25,7 @@ Each of the things needed (aka payload) in order for a user to sign up is an ema
 
 
 URL:
+
 POST-- https://twitterapii.herokuapp.com/oauth/token
 
 Once a user is signed up, they will need to log in with the payload of grant_type, username, and password. From this a token will be created and will be needed to be put into a header. Each token will be good for two hours.
@@ -40,6 +42,7 @@ Here is an example of the json of logging in:
 
 
 URL:
+GET -- https://twitterapii.herokuapp.com/tweets (This will allow you to see all tweets)
 POST -- https://twitterapii.herokuapp.com/tweets
 
 A token will be generated and needed to be put into the header of the tweets url.

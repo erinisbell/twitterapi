@@ -1,19 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe "Tweets" do
-
+  let(:tweet) { FactoryGirl.create :tweet }
+  let(:tweet2) { FactoryGirl.create :tweet }
   describe "#index" do
-    let(:tweet) { FactoryGirl.create :tweet }
     it "show all tweets" do
-      get tweets_path, tweet
+      tweet
+      tweet2
+      get tweets_path
       expect(response).to have_http_status(:success)
-      expect(json.count).to eq 1
+      expect(json.count).to eq 2
     end
   end
 
 
   describe "#show" do
-    let(:tweet) { FactoryGirl.create :tweet }
     it "shows a tweet" do
       get tweets_path, tweet
       expect(response).to have_http_status(:success)
@@ -22,11 +23,14 @@ RSpec.describe "Tweets" do
   end
 
   describe "#create" do
+    let(:user1) { FactoryGirl.create :user }
+    let(:payload) { { tweet: FactoryGirl.attributes_for(:tweet) } }
     it "creates a tweet" do
-      
+      post oauth_token_path
+      expect(response).to have_http_status(:created)
+      expect(json["body"]).to eq payload.body
     end
   end
-
 end
 
 

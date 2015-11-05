@@ -21,6 +21,12 @@ RSpec.describe "Tweets" do
     end
   end
 
+  describe "#create" do
+    it "creates a tweet" do
+      
+    end
+  end
+
 end
 
 

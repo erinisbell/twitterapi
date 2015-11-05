@@ -18,6 +18,8 @@ group :development do
   gem 'foreman'
   gem 'pry'
   gem 'rails-erd'
+  gem "spring"
+  gem 'spring-commands-rspec'
 end
 
 group :test, :development do

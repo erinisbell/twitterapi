@@ -24,7 +24,7 @@ Each of the things needed (aka payload) in order for a user to sign up is an ema
 
 
 URL:
-POST-- /oauth/token
+POST-- https://twitterapii.herokuapp.com/oauth/token
 
 Once a user is signed up, they will need to log in with the payload of grant_type, username, and password. From this a token will be created and will be needed to be put into a header. Each token will be good for two hours.
 Here is an example of the json of logging in:

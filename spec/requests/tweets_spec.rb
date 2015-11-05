@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe TweetsController, type: :controller do
+RSpec.describe "Tweets" do
 
 end

@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     user = User.find(params[:user_id])
     current_user.stop_following(user)
   end
-
+  
   # def edit
   #   user = User.find(params[:id])
   #   if user.edit(user_id)

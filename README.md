@@ -9,7 +9,8 @@ For this Twitter API, a user will be able to be created with the payload of an e
 
 
 URL:
-GET -- https://twitterapii.herokuapp.com/users (This will allow you to see all users)
+
+GET -- https://twitterapii.herokuapp.com/users (This will allow you to see all users)   
 POST-- https://twitterapii.herokuapp.com/users
 
 Sign Up A User:
@@ -42,7 +43,8 @@ Here is an example of the json of logging in:
 
 
 URL:
-GET -- https://twitterapii.herokuapp.com/tweets (This will allow you to see all tweets)
+
+GET -- https://twitterapii.herokuapp.com/tweets (This will allow you to see all tweets)  
 POST -- https://twitterapii.herokuapp.com/tweets
 
 A token will be generated and needed to be put into the header of the tweets url.

@@ -53,11 +53,18 @@ describe "#follow" do
   it "allows another user to follow" do
     token = FactoryGirl.create(:access_token)
     user = FactoryGirl.create(:user)
-    # binding.pry
     put user_follow_path(user.id), {}, { 'authorization' => "Bearer #{token.token}"}
     expect(response).to have_http_status(:success)
   end
 end
 
+describe "#unfollow" do
+  it "allows another user to unfollow" do
+    token = FactoryGirl.create(:access_token)
+    user = FactoryGirl.create(:user)
+    put user_unfollow_path(user.id), {}, { 'authorization' => "Bearer #{token.token}"}
+    expect(response).to have_http_status(:success)
+  end
+end
 
 end

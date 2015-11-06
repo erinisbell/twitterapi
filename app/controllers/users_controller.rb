@@ -2,17 +2,18 @@ class UsersController < ApplicationController
 
   def index
     if params[:q]
-      user = User.where("email ILIKE ?", "%#{params[:q]}%")
-    else
-      user = User
-    end
-    render json: user.page(params[:page]).per(params[:size])
+        users = User.where("email ILIKE ?", "%#{params[:q]}%")
+      else
+        users = User
+      end
+      users = users.page(params[:page]).per(params[:size])
+    render json: users, include: params[:include]
   end
 
 
   def show
-    user  = User.find(params[:id])
-    render json: user
+    user = User.find(params[:id])
+    render json: user, include: params[:include]
   end
 
   def create

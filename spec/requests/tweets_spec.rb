@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 RSpec.describe "Tweets" do
   let(:tweet) { FactoryGirl.create :tweet }
   let(:tweet2) { FactoryGirl.create :tweet }
@@ -23,20 +24,16 @@ RSpec.describe "Tweets" do
   end
 
 
-  # describe "#create" do
-  #   Before do
-  #     user = User.new(email: "blah", password: "word")
-  #     token = User.authenticate!
-  #     @payload = {"tweet" : {
-  #       "body": "This is a tweet"
-  #     }
-  #   }
-  #   it "creates a tweet" do
-  #     post tweet_path, @payload { 'Authenticate' => "Bearer #{token}"}
-  #     expect(response).to have_http_status(:created)
-  #     expect(json["body"]).to eq payload.body
-  #   end
-  # end
+  describe "#create" do
+
+    it "creates a tweet" do
+binding.pry
+      token = get_token['access_token']
+      post tweet_path, payload, {'Authorization' => "Bearer #{token}"}
+      expect(response).to have_http_status(:created)
+      expect(json["body"]).to eq payload.body
+    end
+  end
 end
 
 

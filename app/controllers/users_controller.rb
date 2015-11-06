@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
 
   def index
-    render json: User.all
+    if params[:q]
+      user = User.where("email ILIKE ?", "%#{params[:q]}%")
+    else
+      user = User
+    end
+    render json: user.page(params[:user]).per(params[:size])
   end
+
 
   def show
     user  = User.find(params[:id])

@@ -9,7 +9,7 @@ RSpec.describe "Tweets" do
       tweet2
       get tweets_path
       expect(response).to have_http_status(:success)
-      expect(json.count).to eq 2
+      expect(json["data"].count).to eq 2
     end
   end
 
@@ -18,19 +18,25 @@ RSpec.describe "Tweets" do
     it "shows a tweet" do
       get tweets_path, tweet
       expect(response).to have_http_status(:success)
-      expect(json[0]["body"]).to eq tweet["body"]
+      expect(json["data"][0]["attributes"]["body"]).to eq tweet["body"]
     end
   end
 
-  describe "#create" do
-    let(:user1) { FactoryGirl.create :user }
-    let(:payload) { { tweet: FactoryGirl.attributes_for(:tweet) } }
-    it "creates a tweet" do
-      post oauth_token_path
-      expect(response).to have_http_status(:created)
-      expect(json["body"]).to eq payload.body
-    end
-  end
+
+  # describe "#create" do
+  #   Before do
+  #     user = User.new(email: "blah", password: "word")
+  #     token = User.authenticate!
+  #     @payload = {"tweet" : {
+  #       "body": "This is a tweet"
+  #     }
+  #   }
+  #   it "creates a tweet" do
+  #     post tweet_path, @payload { 'Authenticate' => "Bearer #{token}"}
+  #     expect(response).to have_http_status(:created)
+  #     expect(json["body"]).to eq payload.body
+  #   end
+  # end
 end
 
 

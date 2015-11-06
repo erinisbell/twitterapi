@@ -36,7 +36,7 @@ RSpec.describe "Users" do
       user1
       get users_path
       expect(response).to have_http_status(:success)
-      expect(json.count).to eq 1
+      expect(json["data"].count).to eq 1
     end
   end
 
@@ -45,7 +45,7 @@ RSpec.describe "Users" do
     it "shows a user" do
       get users_path, user1
       expect(response).to have_http_status(:success)
-      expect(json[0]["username"]).to eq user1["username"]
+      expect(json["data"][0]["attributes"]["email"]).to eq user1["email"]
     end
   end
 

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     else
       user = User
     end
-    render json: user.page(params[:user]).per(params[:size])
+    render json: user.page(params[:page]).per(params[:size])
   end
 
 

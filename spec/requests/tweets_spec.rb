@@ -25,15 +25,15 @@ RSpec.describe "Tweets" do
 
 
   describe "#create" do
-
-    it "creates a tweet" do
-binding.pry
-      token = get_token['access_token']
-      post tweet_path, payload, {'Authorization' => "Bearer #{token}"}
-      expect(response).to have_http_status(:created)
-      expect(json["body"]).to eq payload.body
-    end
-  end
+     let(:tweet)   { FactoryGirl.attributes_for(:tweet)}
+     it "creates a tweet" do
+       token = FactoryGirl.create(:access_token)
+        # binding.pry
+       post tweets_path, {tweet: tweet}, { 'authorization' => "Bearer #{token.token}"}
+       expect(response).to have_http_status(:created)
+       expect(json["body"]).to eq tweet["body"]
+     end
+   end
 end
 
 

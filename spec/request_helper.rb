@@ -5,10 +5,10 @@ def json
 end
 
 def get_token
-  user = FactoryGirl.create(password: "password")
+  user = FactoryGirl.create(:user, password: "password")
   payload = {
     grant_type: "password",
-    username: "user100@example.com",
+    username: user.email,
     password: "password"
   }
   post oauth_token_path, payload

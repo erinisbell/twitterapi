@@ -49,6 +49,13 @@ RSpec.describe "Users" do
     end
   end
 
+describe "#follow" do
+  let(:user1) { FactoryGirl.create :user }
+  let(:user2) { FactoryGirl.create :user }
+  it "allows another user to follow" do
+
+  end
+end
 
 
 end

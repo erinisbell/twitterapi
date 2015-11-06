@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:follow, :unfollow]
 
   def index
     if params[:q]

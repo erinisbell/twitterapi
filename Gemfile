@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
+gem 'rails', '4.2.3'
+
 gem 'activerecord'
 gem "acts_as_follower"
 gem 'active_model_serializers', '~> 0.10.0.rc3'
@@ -8,8 +10,8 @@ gem 'bcrypt'
 gem 'doorkeeper'
 gem 'kaminari'
 gem 'rack-cors', require: 'rack/cors'
-gem 'rails-api'
 gem 'rails_12factor'
+# gem 'rails-api'
 gem 'pg'
 gem 'puma'
 gem 'pundit'

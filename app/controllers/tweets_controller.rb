@@ -9,13 +9,20 @@ class TweetsController < ApplicationController
         tweets = Tweet
       end
     tweets = tweets.page(params[:page]).per(params[:size])
-    render json: tweets, include: params[:include]
+    respond_to do |format|
+      format.html { render locals: {tweets: tweets} }
+      format.json { render json: user, include: params[:include] }
+    # render json: tweets, include: params[:include]
   end
+end
 
   def show
     tweet = Tweet.find(params[:id])
-    render json: tweet, include: params[:include]
+    respond_to do |format|
+      format.html { render locals: {tweet: tweet} }
+      format.json { render json: user, include: params[:include] }
   end
+end
 
   def create
     tweet = Tweet.new(tweet_params)

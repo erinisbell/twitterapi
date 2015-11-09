@@ -8,13 +8,19 @@ class UsersController < ApplicationController
         users = User
       end
       users = users.page(params[:page]).per(params[:size])
-    render json: users, include: params[:include]
+      respond_to do |format|
+        format.html { render locals: {users: users} }
+        format.json { render json: users, include: params[:include] }
+      end
   end
 
 
   def show
     user = User.find(params[:id])
-    render json: user, include: params[:include]
+    respond_to do |format|
+      format.html { render locals: {user: user} }
+      format.json { render json: user, include: params[:include] }
+    end
   end
 
   def create
@@ -44,6 +50,7 @@ class UsersController < ApplicationController
   #     render json: user.errors, status: :unprocessable_entity
   #   end
   # end
+
 
 
   private

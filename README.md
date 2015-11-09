@@ -60,7 +60,7 @@ Using this token, the user will be able to create a tweet with the payload of a 
 
 This project has pagination with the parameters of size and page in order to get to the next page. The URL would look something similar to this: https://twitterapii.herokuapp.com/users and the second page would have users?page=2 or whichever number page you're wanting to link to.
 
-#Follow/Unfollow
+##Follow/Unfollow
 
 Users are able to follow and unfollow other users using https://twitterapii.herokuapp.com/users/(user_id)/follow
 or https://twitterapii.herokuapp.com/users/(user_id)/unfollow.

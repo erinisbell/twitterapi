@@ -8,6 +8,7 @@ gem "acts_as_follower"
 gem 'active_model_serializers', '~> 0.10.0.rc3'
 gem 'bcrypt'
 gem 'doorkeeper'
+gem 'jquery-rails'
 gem 'kaminari'
 gem 'materialize-sass'
 gem 'material_icons'

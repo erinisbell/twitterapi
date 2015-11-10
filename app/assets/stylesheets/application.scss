@@ -15,3 +15,30 @@
  *= require material_icons
  */
 @import "materialize";
+
+nav {
+  background-color: #818182;
+}
+
+.btn-large {
+
+  background-color: #000000;
+
+}
+.btn-large:hover {
+  background-color: #552582;
+}
+
+li a {
+ color: #552582;
+}
+
+a {
+  font-family: helvetica;
+  color: #696969;
+}
+
+.index{
+
+  font-size: 22px;
+}

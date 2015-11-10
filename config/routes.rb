@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
    use_doorkeeper
 
+root 'users#index'
+
 resources :tweets, except: [:new, :edit, :destroy]
 
   resources :users, except: [:new, :edit] do

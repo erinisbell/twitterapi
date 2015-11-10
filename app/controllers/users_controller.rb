@@ -35,11 +35,13 @@ class UsersController < ApplicationController
   def follow
     user = User.find(params[:user_id])
     current_user.follow(user)
+    head :no_content
   end
 
   def unfollow
     user = User.find(params[:user_id])
     current_user.stop_following(user)
+    head :no_content
   end
 
   # def edit
